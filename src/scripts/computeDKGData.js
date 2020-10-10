@@ -1,11 +1,9 @@
 const TYPES = ['drivers', 'karts', 'gliders']
 
-const addDKGTo = (DKGDict, courseName, topOrMiddle) => DKGName => {
+const addDKGTo = (DKGDict, courseName, topOrMiddle, DKGType) => DKGName => {
   if (!(DKGName in DKGDict)) {
-    DKGDict[DKGName] = {
-      top: [],
-      middle: []
-    }
+    console.warn(`[WARNING] skipping unknown ${DKGType}: '${DKGName}', course: '${courseName}'`)
+    return
   }
   DKGDict[DKGName][topOrMiddle] = Array.from(new Set([...DKGDict[DKGName][topOrMiddle], courseName]))
 }
@@ -19,8 +17,8 @@ const computeDKGData = (courseData, drivers, karts, gliders) => {
   }
   Object.entries(courseData).forEach(([courseName, courseDKG]) => {
     TYPES.forEach(DKGType => {
-      courseDKG[DKGType].top.forEach(addDKGTo(DKGDicts[DKGType], courseName, 'top'))
-      courseDKG[DKGType].middle.forEach(addDKGTo(DKGDicts[DKGType], courseName, 'middle'))
+      courseDKG[DKGType].top.forEach(addDKGTo(DKGDicts[DKGType], courseName, 'top', DKGType))
+      courseDKG[DKGType].middle.forEach(addDKGTo(DKGDicts[DKGType], courseName, 'middle', DKGType))
     })
   })
   return DKGDicts

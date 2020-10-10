@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { AllCardsContext } from './AllCardsContext'
+import { MyCards } from './MyCards'
+import { MyCardContextProvider } from './MyCardsContext'
 
 function App() {
+  const [drivers, setDrivers] = useState({})
+  const [karts, setKarts] = useState({})
+  const [gliders, setGliders] = useState({})
+  useEffect(() => {
+    axios.get('./data/drivers.json').then(({ data }) => {
+      setDrivers(data)
+    })
+    axios.get('./data/karts.json').then(({ data }) => {
+      setKarts(data)
+    })
+    axios.get('./data/gliders.json').then(({ data }) => {
+      setGliders(data)
+    })
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AllCardsContext.Provider value={{ drivers, karts, gliders }}>
+      <MyCardContextProvider>
+        <MyCards/>
+      </MyCardContextProvider>
+    </AllCardsContext.Provider>
+  )
+
 }
 
-export default App;
+export default App

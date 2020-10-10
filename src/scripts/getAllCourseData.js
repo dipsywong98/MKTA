@@ -8,6 +8,10 @@ const CONCURRENT_LIMIT = 5
 const ENDPOINT = 'https://www.mariowiki.com' //'http://localhost:3000/api/dummy' //
 const TYPES = ['drivers', 'karts', 'gliders']
 
+const formatName = name => {
+  return name.trim().replace('?', '❓').replace('/', '')
+}
+
 const getAllCourseData = async () => {
   console.log('getting all course data')
   const courses = {}
@@ -63,7 +67,7 @@ const getCourseImagesFromHome = html => {
 const getKDGImageAndDataFromHome = html => {
   const $ = cheerio.load(html)
   return mergeAll($('table.sortable tbody tr:not(:first-child)').toArray().map(tr => {
-    const name = $(tr).find('a')[0].children[0].data.trim().replace('?', '❓')
+    const name = formatName($(tr).find('a')[0].children[0].data)
     const imgSrc = $(tr).find('img')[0].attribs.src
     const rarity = $(tr).find('td:nth-child(4)')[0].children[0].data.trim()
     const special = $(tr).find('td:nth-child(5)')[0].children.pop().data.trim()
@@ -84,7 +88,7 @@ const getDriversFromCourse = (html) => {
   let mapKey = ''
   return $('div.mw-collapsible[data-collapsetext="Hide stats"] tr').toArray().reduce((dict, tr, k) => {
     if (k % 4 === 0) {
-      mapKey = $(tr).find('th').first().html().split('<br>')[1].replace(/<.*>(.*)<\/.*>/, '$1').trim().replace('/','')
+      mapKey = formatName($(tr).find('th').first().html().split('<br>')[1].replace(/<.*>(.*)<\/.*>/, '$1'))
       if (!(mapKey in dict)) {
         dict[mapKey] = {
           drivers: {
@@ -105,8 +109,9 @@ const getDriversFromCourse = (html) => {
       const rank = { 2: 'top', 3: 'middle' }[k % 4]
       $(tr).find('td').toArray().forEach((td, typeId) => {
         $(td).find('a').toArray().forEach(a => {
-          if (!dict[mapKey][TYPES[typeId]][rank].includes(a.attribs.title)) {
-            dict[mapKey][TYPES[typeId]][rank].push(a.attribs.title)
+          const name = formatName(a.attribs.title)
+          if (!dict[mapKey][TYPES[typeId]][rank].includes(name)) {
+            dict[mapKey][TYPES[typeId]][rank].push(name)
           }
         })
       })
