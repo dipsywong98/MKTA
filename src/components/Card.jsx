@@ -1,9 +1,15 @@
 import React from 'react'
+import { useAllCards } from './AllCardsContext'
 
 export const Card = ({ name, rarity, type, style, muted, ...props }) => {
+  const cards = useAllCards()
+  if(rarity === undefined) {
+    rarity = cards[type][name].rarity
+  }
   return (
     <div
       {...props}
+      title={name}
       style={{
         position: 'relative',
         backgroundImage: `url(./images/rarities/${rarity}.png)`,
