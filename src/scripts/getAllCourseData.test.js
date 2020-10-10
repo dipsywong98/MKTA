@@ -3,7 +3,7 @@ import {
   getAllCourseData, getCourseImagesFromHome,
   getCoursesUrlFromHome,
   getDriversFromCourse, getKDGImageAndDataFromHome,
-  mergeCoursesFavorData, trimHomepage
+  mergeCoursesFavorData, trimHomepage, getCoursesDKGData
 } from './getAllCourseData'
 
 describe('getAllCourseData', () => {
@@ -37,6 +37,13 @@ describe('getKDGImageAndDataFromHome', () => {
   })
 })
 
+describe('getCoursesDKGData', () => {
+  it('test', () => {
+    const html = readFileSync(__dirname + '/../fixtures/List_of_favored_drivers,_karts,_and_gliders_per_course_in_Mario_Kart_Tour.html').toString()
+    const content = getCoursesDKGData(html)
+    console.log(content)
+  })
+})
 
 describe('getDriversFromCourse', () => {
   it('can parse course page', () => {

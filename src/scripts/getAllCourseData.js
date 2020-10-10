@@ -1,9 +1,7 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
-const eachWithLimit = require('./eachWithLimit')
 const { mergeAll } = require('ramda')
-
-const CONCURRENT_LIMIT = 5
+const union = require('union-value')
 
 const ENDPOINT = 'https://www.mariowiki.com' //'http://localhost:3000/api/dummy' //
 const TYPES = ['drivers', 'karts', 'gliders']
@@ -14,22 +12,24 @@ const formatName = name => {
 
 const getAllCourseData = async () => {
   console.log('getting all course data')
-  const courses = {}
   const { data: homepageHtml } = await axios.get(`${ENDPOINT}/Mario_Kart_Tour`).catch(console.log)
-  const urls = getCoursesUrlFromHome(trimHomepage(homepageHtml, 'Courses'))
   const courseImages = getCourseImagesFromHome(trimHomepage(homepageHtml, 'Courses'))
   const drivers = getKDGImageAndDataFromHome(trimHomepage(homepageHtml, 'Drivers'))
   const karts = getKDGImageAndDataFromHome(trimHomepage(homepageHtml, 'Karts'))
   const gliders = getKDGImageAndDataFromHome(trimHomepage(homepageHtml, 'Gliders'))
 
-  console.log(`there are ${urls.length} courses`)
-  await eachWithLimit(urls, CONCURRENT_LIMIT, async (url, i) => {
-      console.log(i, '/', urls.length)
-      await axios.get(ENDPOINT + urls[i])
-        .then(({ data: courseHtml }) => mergeCoursesFavorData(courses, getDriversFromCourse(courseHtml)))
-        .catch(console.log)
-  })
-  console.log('all course data got')
+  // const courses = {}
+  // const urls = getCoursesUrlFromHome(trimHomepage(homepageHtml, 'Courses'))
+  // console.log(`there are ${urls.length} courses`)
+  // await eachWithLimit(urls, CONCURRENT_LIMIT, async (url, i) => {
+  //   console.log(i, '/', urls.length)
+  //   await axios.get(ENDPOINT + urls[i])
+  //     .then(({ data: courseHtml }) => mergeCoursesFavorData(courses, getDriversFromCourse(courseHtml)))
+  //     .catch(console.log)
+  // })
+
+  const { data: listOfFavoredDKGHtml } = await axios.get(`${ENDPOINT}/List_of_favored_drivers,_karts,_and_gliders_per_course_in_Mario_Kart_Tour`).catch(console.log)
+  const courses = getCoursesDKGData(listOfFavoredDKGHtml)
   return { courses, courseImages, drivers, karts, gliders }
 }
 
@@ -42,7 +42,7 @@ const getCoursesUrlFromHome = html => {
   return $('table').find('tr>td:first-child a').toArray().map(a => a.attribs.href)
 }
 
-const makeName = (name, variant) => {
+const makeCourseName = (name, variant) => {
   if (/\d$/.test(name)) {
     return name + variant
   } else {
@@ -57,9 +57,9 @@ const getCourseImagesFromHome = html => {
     const hrefs = $(tr).find('img').toArray().map(img => img.attribs.src)
     return {
       [name]: hrefs[0],
-      [makeName(name, 'R')]: hrefs[1],
-      [makeName(name, 'T')]: hrefs[2],
-      [makeName(name, 'RT')]: hrefs[3],
+      [makeCourseName(name, 'R')]: hrefs[1],
+      [makeCourseName(name, 'T')]: hrefs[2],
+      [makeCourseName(name, 'RT')]: hrefs[3],
     }
   }))
 }
@@ -81,6 +81,25 @@ const getKDGImageAndDataFromHome = html => {
       }
     }
   }))
+}
+
+const courseVariants = ['', 'R', 'T', 'RT']
+
+const getCoursesDKGData = html => {
+  const courses = {}
+  const $ = cheerio.load(html)
+  $('h3+table').toArray().forEach(table => {
+    const courseNameBase = $(table.prev.prev).find('a[title]')[0].attribs.title
+    $(table).find('tr td:not([rowspan])').toArray().forEach((td, k) => {
+      const variantId = Math.floor(k / 18)
+      const type = ['drivers', 'karts', 'gliders'][k % 3]
+      const topMiddle = (k % 6) < 3 ? 'top' : 'middle'
+      const courseName = formatName(makeCourseName(courseNameBase, courseVariants[variantId]))
+      const names = $(td).find('a').toArray().map(a => formatName(a.attribs.title))
+      union(courses, `${courseName}.${type}.${topMiddle}`, names)
+    })
+  })
+  return courses
 }
 
 const getDriversFromCourse = (html) => {
@@ -142,5 +161,6 @@ module.exports = {
   mergeCoursesFavorData,
   trimHomepage,
   getCourseImagesFromHome,
-  getKDGImageAndDataFromHome
+  getKDGImageAndDataFromHome,
+  getCoursesDKGData
 }
