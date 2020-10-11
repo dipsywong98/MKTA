@@ -27,10 +27,10 @@ export const NavBar = () => {
       boxShadow: 1
     }}>
 
-    <NavLink title='my drivers' href='#drivers'><Icon path={ICONS.drivers}/></NavLink>
-    <NavLink title='my karts' href='#karts'><Icon path={ICONS.karts}/></NavLink>
-    <NavLink title='my gliders' href='#gliders'><Icon path={ICONS.gliders}/></NavLink>
-    <NavLink title='courses analysis' href='#courses'><Icon path={ICONS.star}/></NavLink>
-    <NavLink title='unique cards' href='#unique_cards'><Icon path={ICONS.greenShell}/></NavLink>
+    <NavLink title='My Drivers' href='#drivers'><Icon path={ICONS.drivers}/></NavLink>
+    <NavLink title='My Karts' href='#karts'><Icon path={ICONS.karts}/></NavLink>
+    <NavLink title='My Gliders' href='#gliders'><Icon path={ICONS.gliders}/></NavLink>
+    <NavLink title='Course Performance' href='#courses'><Icon path={ICONS.star}/></NavLink>
+    <NavLink title='Unique Cards' href='#unique_cards'><Icon path={ICONS.greenShell}/></NavLink>
   </Flex>
 }

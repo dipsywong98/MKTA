@@ -31,7 +31,7 @@ export const UniqueCards = () => {
         it)</Text>
       {
         Object.entries(uniqueCards).map(([type, cardsToCourses]) => (<CollapsibleWell key={type} header={
-            <IconText path={ICONS[type]}>unique {type} ({Object.entries(cardsToCourses).length})</IconText>
+            <IconText path={ICONS[type]} sx={{textTransform: 'capitalize'}}>unique {type} ({Object.entries(cardsToCourses).length})</IconText>
           } noPad>
             <table>
               <tbody>

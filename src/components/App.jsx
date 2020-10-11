@@ -4,7 +4,7 @@ import { AllCardsContext } from './AllCardsContext'
 import { MyCards } from './MyCards'
 import { MyCardContextProvider } from './MyCardsContext'
 import { AllCoursesContext } from './AllCoursesContext'
-import { CourseStat } from './CourseStat'
+import { CoursePerformance } from './CoursePerformance'
 import { UniqueCards } from './UniqueCards'
 import { withAlertQueue } from './common/AlertContext'
 import { Box, Container } from '@theme-ui/components'
@@ -51,7 +51,7 @@ function App() {
             <NavBar/>
             <Container sx={{ gridArea: 'content', overflow: 'auto' }}>
               <MyCards/>
-              <CourseStat/>
+              <CoursePerformance/>
               <UniqueCards/>
             </Container>
           </Box>
