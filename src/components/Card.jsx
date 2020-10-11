@@ -6,6 +6,7 @@ export const Card = ({ name, rarity, type, style, muted, ...props }) => {
   const cards = useAllCards()
   const alertCard = useAlertCard()
   if(rarity === undefined) {
+    if(cards[type][name] === undefined) console.log(type, name, cards[type])
     rarity = cards[type][name].rarity
   }
   return (
@@ -48,7 +49,8 @@ export const Card = ({ name, rarity, type, style, muted, ...props }) => {
         />
       </div>
       <div
-        style={{ backgroundColor: 'black', opacity: muted ? 0.5 : 0, position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}/>
+        style={{ backgroundColor: 'black', opacity: muted ? 0.5 : 0, position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}
+      />
     </div>
   )
 }

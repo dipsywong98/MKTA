@@ -6,9 +6,9 @@ import { MyCardContextProvider } from './MyCardsContext'
 import { AllCoursesContext } from './AllCoursesContext'
 import { CoursePerformance } from './CoursePerformance'
 import { UniqueCards } from './UniqueCards'
-import { withAlertQueue } from './common/AlertContext'
 import { Box, Container } from '@theme-ui/components'
 import { NavBar } from './NavBar'
+import { AlertContextProvider } from './common/AlertContext'
 
 function App() {
   const [drivers, setDrivers] = useState({})
@@ -33,33 +33,34 @@ function App() {
     <AllCardsContext.Provider value={{ drivers, karts, gliders }}>
       <AllCoursesContext.Provider value={courses}>
         <MyCardContextProvider>
-          <Box
-            sx={{
-              position: 'fixed',
-              top: 0,
-              right: 0,
-              left: 0,
-              bottom: 0,
-              display: 'grid',
-              gridTemplateColumns: '1fr',
-              gridTemplateRows: '0fr 1fr',
-              gridTemplateAreas: `
-              "navbar"
-              "content"
-              `,
-            }}>
-            <NavBar/>
-            <Container sx={{ gridArea: 'content', overflow: 'auto' }}>
-              <MyCards/>
-              <CoursePerformance/>
-              <UniqueCards/>
-            </Container>
-          </Box>
+          <AlertContextProvider>
+            <Box
+              sx={{
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                left: 0,
+                bottom: 0,
+                display: 'grid',
+                gridTemplateColumns: '1fr',
+                gridTemplateRows: '0fr 1fr',
+                gridTemplateAreas: `
+                "navbar"
+                "content"
+                `,
+              }}>
+              <NavBar/>
+              <Container sx={{ gridArea: 'content', overflow: 'auto' }}>
+                <MyCards/>
+                <CoursePerformance/>
+                <UniqueCards/>
+              </Container>
+            </Box>
+          </AlertContextProvider>
         </MyCardContextProvider>
       </AllCoursesContext.Provider>
     </AllCardsContext.Provider>
   )
-
 }
 
-export default withAlertQueue(App)
+export default App
