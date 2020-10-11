@@ -7,6 +7,8 @@ import { AllCoursesContext } from './AllCoursesContext'
 import { CourseStat } from './CourseStat'
 import { CardStat } from './CardStat'
 import { withAlertQueue } from './common/AlertContext'
+import { Box, Container } from '@theme-ui/components'
+import { NavBar } from './NavBar'
 
 function App() {
   const [drivers, setDrivers] = useState({})
@@ -31,11 +33,30 @@ function App() {
     <AllCardsContext.Provider value={{ drivers, karts, gliders }}>
       <AllCoursesContext.Provider value={courses}>
         <MyCardContextProvider>
-          <div style={{display: 'flex', flexWrap: 'wrap'}}>
-            <MyCards/>
-            <CourseStat/>
-            <CardStat/>
-          </div>
+          <Box
+            sx={{
+              position: 'fixed',
+              top: 0,
+              right: 0,
+              left: 0,
+              bottom: 0,
+              display: 'grid',
+              gridTemplateColumns: '1fr',
+              gridTemplateRows: '0fr 1fr',
+              gridTemplateAreas: `
+              "navbar"
+              "content"
+              `,
+            }}>
+            <NavBar/>
+            <Container sx={{gridArea: 'content', overflow: 'auto'}}>
+              <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                <MyCards/>
+                <CourseStat/>
+                <CardStat/>
+              </div>
+            </Container>
+          </Box>
         </MyCardContextProvider>
       </AllCoursesContext.Provider>
     </AllCardsContext.Provider>

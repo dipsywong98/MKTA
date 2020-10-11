@@ -2,38 +2,46 @@ import React from 'react'
 import { useMyCardsReducers } from './MyCardsContext'
 import { Card } from './Card'
 import { useAllCards } from '../hooks/useAllCards'
+import CollapsibleWell from './common/CollapsibleWell'
+import { Box, Heading } from '@theme-ui/components'
+import IconText from './common/IconText'
+import { ICONS } from './common/Icon'
 
 export const MyCards = () => {
   const allCards = useAllCards()
   const { myCards, levelToggle } = useMyCardsReducers()
   return (
-    <div>
-      <button onClick={() => console.log(myCards)}>console.log</button>
-      <div style={{ display: 'flex', alignContent: 'flex-start', justifyContent: 'flex-start' }}>
+    <Box sx={{width: '100%'}}>
+      <Heading><IconText path={ICONS.drivers}>My Cards</IconText></Heading>
+      <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%'}}>
         {['drivers', 'karts', 'gliders'].map(type => (
-          <div key={type} style={{ display: 'flex', flexWrap: 'wrap' }}>
-            {Object.entries(allCards[type]).map(([name, { rarity }]) => {
-              return (
-                <Card
-                  key={name}
-                  type={type}
-                  rarity={rarity}
-                  name={name}
-                  muted={!myCards[type][name]?.level}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    levelToggle(type, name)
-                  }}
-                  onContextMenu={e => {
-                    // levelDown(type, name)
-                    e.preventDefault()
-                  }}
-                />
-              )
-            })}
-          </div>
+          <Box sx={{minWidth: '248px', mr: 2}} id={type}>
+            <CollapsibleWell header={<IconText path={ICONS[type]}>my {type}</IconText>}>
+              <div key={type} style={{ display: 'flex', flexWrap: 'wrap', maxWidth: 'calc(54px *4)', minWidth: 'calc(54px *4)' }}>
+                {Object.entries(allCards[type]).map(([name, { rarity }]) => {
+                  return (
+                    <Card
+                      key={name}
+                      type={type}
+                      rarity={rarity}
+                      name={name}
+                      muted={!myCards[type][name]?.level}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        levelToggle(type, name)
+                      }}
+                      onContextMenu={e => {
+                        // levelDown(type, name)
+                        e.preventDefault()
+                      }}
+                    />
+                  )
+                })}
+              </div>
+            </CollapsibleWell>
+          </Box>
         ))}
       </div>
-    </div>
+    </Box>
   )
 }

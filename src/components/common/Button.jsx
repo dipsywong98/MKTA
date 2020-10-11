@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import { ButtonProps, jsx } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import { Button as ThemeUIButton } from '@theme-ui/components'
 import PropTypes from 'prop-types'
 import { forwardRef } from 'react'
-export const isDefined = (x) => x !== undefined && x !== null
 
 const buttonProps = {
   block: PropTypes.bool

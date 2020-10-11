@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import PropTypes  from 'prop-types'
+import PropTypes from 'prop-types'
 import { Box } from '@theme-ui/components'
 import { SLOW, transition } from '../../theme/transitions'
 
@@ -13,7 +13,6 @@ const collapsibleProps = {
   hideOnly: PropTypes.bool,
   noInitialTransition: PropTypes.bool
 }
-
 
 const Collapsible = ({ isOpen, children, hideOnly, noInitialTransition, ...boxProps }) => {
   const ref = useRef(null)
@@ -44,7 +43,7 @@ const Collapsible = ({ isOpen, children, hideOnly, noInitialTransition, ...boxPr
     if (isMounted) {
       updateScrollHeight()
       if ((transitionState & BEFORE) > 0) {
-        setTransitionState(transitionState & (~BEFORE | DURING))
+        setTransitionState((transitionState & ~BEFORE) | DURING)
       } else if ((transitionState & DURING) > 0) {
         setTimeout(() => {
           if (isMounted) {
