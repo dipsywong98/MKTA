@@ -16,7 +16,6 @@ export const Card = ({ name, rarity, type, style, muted, ...props }) => {
       onClick={props.onClick || (() => alertCard(type, name))}
       onContextMenu={e => {
         e.preventDefault()
-        console.log(type, name)
         alertCard(type, name)
       }}
       style={{
