@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useMyFavoredCourses } from '../hooks/useMyFavoredCourses'
 import { Box, Flex, Heading, Text } from '@theme-ui/components'
 import IconText from './common/IconText'
@@ -7,33 +7,21 @@ import CollapsibleWell from './common/CollapsibleWell'
 import { CourseLink } from './CourseLink'
 import { Table } from './common/Table'
 import { IconWithPartialHide } from './IconWithPartialHide'
-import { useAlertCourse } from '../hooks/useAlertCourse'
+import { CoursePerformanceTag } from './CoursePerformanceTag'
 
 const CoursesCollapsible = ({courses, header}) => {
-  const getHideProportion = (hasTop, hasMiddle) => {
-    return hasTop ? 0 : (hasMiddle ? 0.5 : 1)
-  }
-  const alertCourse = useAlertCourse()
-  useEffect(() => {
-    alertCourse('Tokyo Blur')
-  }, [])
   return (
     <Box sx={{flex: 1, mr: 2, minWidth: 'calc(54px *4)'}}>
       <CollapsibleWell header={header} noPad>
         <Table>
           <tbody>
-            {Object.entries(courses).map(([courseName, {allTopFlags, allMiddleFlags}, score]) => (
+            {Object.keys(courses).map((courseName) => (
               <tr key={courseName}>
                 <td>
                   <CourseLink name={courseName}/>
                 </td>
                 <td>
-                  <Flex>
-                    {score}
-                    <IconWithPartialHide path={ICONS.drivers} hideProportion={getHideProportion(allTopFlags[0], allMiddleFlags[0])}/>
-                    <IconWithPartialHide path={ICONS.karts} hideProportion={getHideProportion(allTopFlags[1], allMiddleFlags[1])}/>
-                    <IconWithPartialHide path={ICONS.gliders} hideProportion={getHideProportion(allTopFlags[2], allMiddleFlags[2])}/>
-                  </Flex>
+                  <CoursePerformanceTag name={courseName}/>
                 </td>
               </tr>
             ))}

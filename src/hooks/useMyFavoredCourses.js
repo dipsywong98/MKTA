@@ -47,6 +47,6 @@ export const useMyFavoredCourses= () => {
       }
     })(myCourses.sort((a, b) => b[1].score - a[1].score))
 
-    return { myTopCourses: fromPairs(myTopCourses), myMiddleCourses: fromPairs(myMiddleCourses), myWorstCourses: fromPairs(myWorstCourses), myCourses }
+    return { myTopCourses: fromPairs(myTopCourses), myMiddleCourses: fromPairs(myMiddleCourses), myWorstCourses: fromPairs(myWorstCourses), myCourses: fromPairs(myCourses) }
   }, [courses, iHave])
 }
