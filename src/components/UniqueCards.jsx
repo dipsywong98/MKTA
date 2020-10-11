@@ -6,26 +6,12 @@ import CollapsibleWell from './common/CollapsibleWell'
 import { CourseLink } from './CourseLink'
 import IconText from './common/IconText'
 import { ICONS } from './common/Icon'
+import { Table } from './common/Table'
 
 export const UniqueCards = () => {
   const uniqueCards = useMyUniqueCards()
   return (
-    <Box
-      id='unique_cards'
-      sx={{
-        table: {
-          width: '100%',
-          borderCollapse: 'collapse'
-        },
-        tr: {
-          ':nth-of-type(odd)': {
-            backgroundColor: 'bgs.1'
-          },
-          ':nth-of-type(even)': {
-            backgroundColor: 'bgs.2'
-          }
-        }
-      }}>
+    <Box id='unique_cards'>
       <Heading><IconText path={ICONS.greenShell}>Unique Cards</IconText></Heading>
       <Text>A unique card is the only top card of any course that you have. (or middle if you dont have any top card for
         it)</Text>
@@ -33,7 +19,7 @@ export const UniqueCards = () => {
         Object.entries(uniqueCards).map(([type, cardsToCourses]) => (<CollapsibleWell key={type} header={
             <IconText path={ICONS[type]} sx={{textTransform: 'capitalize'}}>unique {type} ({Object.entries(cardsToCourses).length})</IconText>
           } noPad>
-            <table>
+            <Table>
               <tbody>
               {
                 Object.entries(cardsToCourses).map(([name, { top, middle }]) => (
@@ -62,7 +48,7 @@ export const UniqueCards = () => {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </Table>
           </CollapsibleWell>
         ))
       }

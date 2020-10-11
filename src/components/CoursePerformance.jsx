@@ -4,10 +4,43 @@ import { useAlertCourse } from '../hooks/useAlertCourse'
 import { Box, Flex, Heading, Text } from '@theme-ui/components'
 import IconText from './common/IconText'
 import { ICONS } from './common/Icon'
+import CollapsibleWell from './common/CollapsibleWell'
+import { CourseLink } from './CourseLink'
+import { Table } from './common/Table'
+import { IconWithPartialHide } from './IconWithPartialHide'
 
+const CoursesCollapsible = ({courses, header}) => {
+  const getHideProportion = (hasTop, hasMiddle) => {
+    return hasTop ? 0 : (hasMiddle ? 0.5 : 1)
+  }
+  return (
+    <Box sx={{flex: 1, mr: 2}}>
+      <CollapsibleWell header={header} noPad>
+        <Table>
+          <tbody>
+            {Object.entries(courses).map(([courseName, {allTopFlags, allMiddleFlags}]) => (
+              <tr>
+                <td>
+                  <CourseLink name={courseName}/>
+                </td>
+                <td>
+                  <Flex>
+                    <IconWithPartialHide path={ICONS.drivers} hideProportion={getHideProportion(allTopFlags[0], allMiddleFlags[0])}/>
+                    <IconWithPartialHide path={ICONS.karts} hideProportion={getHideProportion(allTopFlags[1], allMiddleFlags[1])}/>
+                    <IconWithPartialHide path={ICONS.gliders} hideProportion={getHideProportion(allTopFlags[2], allMiddleFlags[2])}/>
+                  </Flex>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </CollapsibleWell>
+    </Box>
+  )
+}
 
 export const CoursePerformance = () => {
-  const favoredCourses = useMyFavoredCourses()
+  const {myTopCourses, myMiddleCourses, myWorstCourses} = useMyFavoredCourses()
   const [expands, setExpands] = useState({})
   const alertCourse = useAlertCourse()
   return <Box>
@@ -20,15 +53,10 @@ export const CoursePerformance = () => {
         <li>You have dont have any of the middle or above in drivers, karts or gliders (Worst Courses)</li>
       </ol>
     </Text>
-    <Flex>
-      {Object.entries(favoredCourses).map(([key, courses]) => (<div key={key}>
-        <div>{Object.keys(courses).length} {key} <button onClick={() => setExpands({...expands, [key]:!expands[key]})}>{expands[key] ? '-' : '+'}</button></div>
-        {expands[key] && Object.entries(courses).map(([courseName, course]) => {
-          return <div key={courseName}>
-            <button onClick={() => alertCourse(courseName)}>{courseName}</button>
-          </div>
-        })}
-      </div>))}
+    <Flex sx={{flexWrap: 'wrap'}}>
+      <CoursesCollapsible header={<Flex><IconWithPartialHide path={ICONS.star} hideProportion={0}/><Text ml={2}> TopCourses({Object.keys(myTopCourses).length})</Text></Flex>} courses={myTopCourses}/>
+      <CoursesCollapsible header={<Flex><IconWithPartialHide path={ICONS.star} hideProportion={0.5}/><Text ml={2}> MiddleCourses({Object.keys(myMiddleCourses).length})</Text></Flex>} courses={myMiddleCourses}/>
+      <CoursesCollapsible header={<Flex><IconWithPartialHide path={ICONS.star} hideProportion={1}/><Text ml={2}> WorstCourses({Object.keys(myWorstCourses).length})</Text></Flex>} courses={myWorstCourses}/>
     </Flex>
   </Box>
 }

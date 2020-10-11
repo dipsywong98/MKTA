@@ -1,11 +1,11 @@
-import { useMyCards } from '../components/MyCardsContext'
 import { useMemo } from 'react'
 import set from 'set-value'
 import { useAllCourses } from './useAllCourses'
+import { useDoIHave } from './useDoIHave'
 
 export const useMyFavoredCourses= () => {
   const courses = useAllCourses()
-  const myCards = useMyCards()
+  const iHave = useDoIHave()
 
   return useMemo(() => {
     const myTopCourses = {}
@@ -17,18 +17,20 @@ export const useMyFavoredCourses= () => {
       const allMiddleFlags = [false, false, false]
       Object.entries(courseData).forEach(([type, { top, middle }], typeIndex) => {
         top.forEach((cardName) => {
-          if (!!myCards[type][cardName]?.level) {
+          if (iHave(type, cardName)) {
             allTopFlags[typeIndex] = true
             set(myCourse, `${type}.top.${cardName}`, true)
           }
         })
         middle.forEach((cardName) => {
-          if (!!myCards[type][cardName]?.level) {
+          if (iHave(type, cardName)) {
             allMiddleFlags[typeIndex] = true
             set(myCourse, `${type}.middle.${cardName}`, true)
           }
         })
       })
+      myCourse.allTopFlags = allTopFlags
+      myCourse.allMiddleFlags = allMiddleFlags
       if (allTopFlags[0] && allTopFlags[1] && allTopFlags[2]) {
         myTopCourses[courseName] = myCourse
       } else if (allMiddleFlags[0] && allMiddleFlags[1] && allMiddleFlags[2]) {
@@ -38,5 +40,5 @@ export const useMyFavoredCourses= () => {
       }
     })
     return { myTopCourses, myMiddleCourses, myWorstCourses }
-  }, [courses, myCards])
+  }, [courses, iHave])
 }
