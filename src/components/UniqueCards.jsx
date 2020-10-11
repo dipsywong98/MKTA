@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from './Card'
 import { useMyUniqueCards } from '../hooks/useMyUniqueCards'
-import { Box, Flex, Heading, Text } from '@theme-ui/components'
+import { Box, Flex, Grid, Heading, Text } from '@theme-ui/components'
 import CollapsibleWell from './common/CollapsibleWell'
 import { CourseLink } from './CourseLink'
 import IconText from './common/IconText'
@@ -44,18 +44,20 @@ export const UniqueCards = () => {
                       </Flex>
                     </td>
                     <td>
-                      {top && <Flex sx={{ flexDirection: ['column', null, 'row'] }}>
+                      <Grid columns={[1, null, 'auto 1fr']} gap={1}>
+                      {top && <>
                         <Box><strong>Top({top.length}):</strong></Box>
                         <Box>
                           {top.map(courseName => <CourseLink key={courseName} name={courseName}/>)}
                         </Box>
-                      </Flex>}
-                      {middle && <Flex sx={{ flexDirection: ['column', null, 'row'] }}>
+                      </>}
+                      {middle && <>
                         <Box><strong>Middle({middle.length}):</strong></Box>
                         <Box>
                           {middle.map(courseName => <CourseLink key={courseName} name={courseName}/>)}
                         </Box>
-                      </Flex>}
+                      </>}
+                      </Grid>
                     </td>
                   </tr>
                 ))}
