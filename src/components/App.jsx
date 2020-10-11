@@ -5,7 +5,7 @@ import { MyCards } from './MyCards'
 import { MyCardContextProvider } from './MyCardsContext'
 import { AllCoursesContext } from './AllCoursesContext'
 import { CourseStat } from './CourseStat'
-import { CardStat } from './CardStat'
+import { UniqueCards } from './UniqueCards'
 import { withAlertQueue } from './common/AlertContext'
 import { Box, Container } from '@theme-ui/components'
 import { NavBar } from './NavBar'
@@ -49,12 +49,10 @@ function App() {
               `,
             }}>
             <NavBar/>
-            <Container sx={{gridArea: 'content', overflow: 'auto'}}>
-              <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <MyCards/>
-                <CourseStat/>
-                <CardStat/>
-              </div>
+            <Container sx={{ gridArea: 'content', overflow: 'auto' }}>
+              <MyCards/>
+              <CourseStat/>
+              <UniqueCards/>
             </Container>
           </Box>
         </MyCardContextProvider>

@@ -31,5 +31,6 @@ export const NavBar = () => {
     <NavLink title='my karts' href='#karts'><Icon path={ICONS.karts}/></NavLink>
     <NavLink title='my gliders' href='#gliders'><Icon path={ICONS.gliders}/></NavLink>
     <NavLink title='courses analysis' href='#courses'><Icon path={ICONS.star}/></NavLink>
+    <NavLink title='unique cards' href='#unique_cards'><Icon path={ICONS.greenShell}/></NavLink>
   </Flex>
 }

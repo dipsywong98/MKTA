@@ -2,9 +2,11 @@ import { useMyFavoredCourses } from './useMyFavoredCourses'
 import { useMemo } from 'react'
 import set from 'set-value'
 import { mergeAll } from 'ramda'
+import { useAllCards } from './useAllCards'
 
 export const useMyUniqueCards = () => {
   const myFavoredCourses = useMyFavoredCourses()
+  const cards = useAllCards()
   return useMemo(() => {
     const myCards = {}
     Object.entries(mergeAll(Object.values(myFavoredCourses))).forEach(([courseName, myCourse]) => {
@@ -19,6 +21,22 @@ export const useMyUniqueCards = () => {
         }
       })
     })
-    return myCards
-  }, [myFavoredCourses])
+    return mergeAll(['drivers', 'karts', 'gliders'].map((type) => {
+      const {top, middle} = myCards?.[type] || {top: {}, middle: {}}
+      const joinedList = Object.entries(top).map(([name, courses]) => [name, { top: Object.keys(courses) }, Object.keys(courses).length * 10000])
+      Object.entries(middle).forEach(([name, courses]) => {
+        const find = joinedList.find(([_name]) => name === _name)
+        if(find) {
+          find[1].middle = Object.keys(courses)
+          find[2] += Object.keys(courses).length * 10
+        } else {
+          joinedList.push([name, {middle: Object.keys(courses)}, Object.keys(courses).length * 10])
+        }
+      })
+      joinedList.forEach((card) => card[2] += ['Normal', 'Super', 'High-End'].indexOf(cards[type][card[0]].rarity))
+      return { [type]: mergeAll(joinedList.sort((a,b) => b[2] - a[2]).map(([name, cards]) => ({
+          [name]: cards
+        }))) }
+    }))
+  }, [myFavoredCourses, cards])
 }

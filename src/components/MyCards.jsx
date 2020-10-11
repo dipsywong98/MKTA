@@ -15,7 +15,7 @@ export const MyCards = () => {
       <Heading><IconText path={ICONS.drivers}>My Cards</IconText></Heading>
       <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%'}}>
         {['drivers', 'karts', 'gliders'].map(type => (
-          <Box sx={{minWidth: '248px', mr: 2}} id={type}>
+          <Box key={type} sx={{minWidth: '248px', mr: 2}} id={type}>
             <CollapsibleWell header={<IconText path={ICONS[type]}>my {type}</IconText>}>
               <div key={type} style={{ display: 'flex', flexWrap: 'wrap', maxWidth: 'calc(54px *4)', minWidth: 'calc(54px *4)' }}>
                 {Object.entries(allCards[type]).map(([name, { rarity }]) => {
