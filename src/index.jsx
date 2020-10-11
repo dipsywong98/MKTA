@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import { Global } from '@emotion/core'
+import theme from './theme'
+import { ThemeProvider } from 'theme-ui'
+
+const MyGlobal = () => (
+  <Global
+    styles={(theme) => ({
+      body: theme.styles.body,
+      '*': theme.styles['*'],
+      a: theme.styles.a
+    })}
+  />
+)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <MyGlobal/><App />
+  </ThemeProvider>,
   document.getElementById('root')
 );
 

@@ -6,6 +6,7 @@ import { MyCardContextProvider } from './MyCardsContext'
 import { AllCoursesContext } from './AllCoursesContext'
 import { CourseStat } from './CourseStat'
 import { CardStat } from './CardStat'
+import { withAlertQueue } from './common/AlertContext'
 
 function App() {
   const [drivers, setDrivers] = useState({})
@@ -42,4 +43,4 @@ function App() {
 
 }
 
-export default App
+export default withAlertQueue(App)

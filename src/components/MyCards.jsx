@@ -5,7 +5,7 @@ import { Card } from './Card'
 
 export const MyCards = () => {
   const allCards = useAllCards()
-  const { myCards, levelUp, levelDown } = useMyCardsReducers()
+  const { myCards, levelToggle } = useMyCardsReducers()
   return (
     <div>
       <button onClick={() => console.log(myCards)}>console.log</button>
@@ -22,10 +22,10 @@ export const MyCards = () => {
                   muted={!myCards[type][name]?.level}
                   onClick={(e) => {
                     e.preventDefault()
-                    levelUp(type, name)
+                    levelToggle(type, name)
                   }}
                   onContextMenu={e => {
-                    levelDown(type, name)
+                    // levelDown(type, name)
                     e.preventDefault()
                   }}
                 />
