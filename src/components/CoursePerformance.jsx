@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useMyFavoredCourses } from '../hooks/useMyFavoredCourses'
-import { useAlertCourse } from '../hooks/useAlertCourse'
 import { Box, Flex, Heading, Text } from '@theme-ui/components'
 import IconText from './common/IconText'
 import { ICONS } from './common/Icon'
@@ -14,17 +13,18 @@ const CoursesCollapsible = ({courses, header}) => {
     return hasTop ? 0 : (hasMiddle ? 0.5 : 1)
   }
   return (
-    <Box sx={{flex: 1, mr: 2}}>
+    <Box sx={{flex: 1, mr: 2, minWidth: 'calc(54px *4)'}}>
       <CollapsibleWell header={header} noPad>
         <Table>
           <tbody>
-            {Object.entries(courses).map(([courseName, {allTopFlags, allMiddleFlags}]) => (
-              <tr>
+            {Object.entries(courses).map(([courseName, {allTopFlags, allMiddleFlags}, score]) => (
+              <tr key={courseName}>
                 <td>
                   <CourseLink name={courseName}/>
                 </td>
                 <td>
                   <Flex>
+                    {score}
                     <IconWithPartialHide path={ICONS.drivers} hideProportion={getHideProportion(allTopFlags[0], allMiddleFlags[0])}/>
                     <IconWithPartialHide path={ICONS.karts} hideProportion={getHideProportion(allTopFlags[1], allMiddleFlags[1])}/>
                     <IconWithPartialHide path={ICONS.gliders} hideProportion={getHideProportion(allTopFlags[2], allMiddleFlags[2])}/>
@@ -41,8 +41,6 @@ const CoursesCollapsible = ({courses, header}) => {
 
 export const CoursePerformance = () => {
   const {myTopCourses, myMiddleCourses, myWorstCourses} = useMyFavoredCourses()
-  const [expands, setExpands] = useState({})
-  const alertCourse = useAlertCourse()
   return <Box>
     <Heading id='courses'><IconText path={ICONS.star}>Course Performance</IconText></Heading>
     <Text>
