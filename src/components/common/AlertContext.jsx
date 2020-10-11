@@ -5,8 +5,8 @@ import { Box } from '@theme-ui/components'
 export const AlertContextProvider = props => {
   const [queue, setQueue] = useState([])
 
-  const popAlert = () => {
-    setQueue(queue.slice(1))
+  const popAlert = (i) => {
+    setQueue(queue.filter((_, k) => k !== i))
   }
 
   const queueAlert = (s) => {
@@ -15,7 +15,7 @@ export const AlertContextProvider = props => {
   }
 
   const alertNodes = queue.map((message, i) => (
-    <ConfirmDialog key={i} isOpen={i === 0} title={message.title} onClose={popAlert} hideNoChoice>
+    <ConfirmDialog key={i} isOpen={true} title={message.title} onClose={() => popAlert(i)} hideNoChoice>
       {message.message}
     </ConfirmDialog>
   ))
