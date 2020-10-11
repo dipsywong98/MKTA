@@ -31,6 +31,5 @@ export const withAlertQueue = (WrappedComponent) => {
   return AlertWrapper
 }
 
-export const useAlert = () => useContext(AlertContext)
 export const AlertContext = createContext(window.alert)
 AlertContext.displayName = 'AlertContext'

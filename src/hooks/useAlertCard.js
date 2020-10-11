@@ -1,10 +1,9 @@
-import { useAllCourses } from './AllCoursesContext'
-import { useAlert } from './common/AlertContext'
+import { useAlert } from './useAlert'
 import { Box } from '@theme-ui/components'
 import React from 'react'
-import { useAllCards } from './AllCardsContext'
+import { useAllCards } from './useAllCards'
 
-export const useCardAlert = () => {
+export const useAlertCard = () => {
   const cards = useAllCards()
   const alert = useAlert()
   return (type, name) => {

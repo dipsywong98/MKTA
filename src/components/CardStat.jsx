@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useMyUniqueCards } from './useMyUniqueCards'
 import { Card } from './Card'
+import { useMyUniqueCards } from '../hooks/useMyUniqueCards'
 
 export const CardStat = () => {
   const uniqueCards = useMyUniqueCards()

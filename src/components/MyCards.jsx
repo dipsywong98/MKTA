@@ -1,7 +1,7 @@
 import React from 'react'
-import { useAllCards } from './AllCardsContext'
 import { useMyCardsReducers } from './MyCardsContext'
 import { Card } from './Card'
+import { useAllCards } from '../hooks/useAllCards'
 
 export const MyCards = () => {
   const allCards = useAllCards()

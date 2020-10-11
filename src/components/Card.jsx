@@ -1,8 +1,10 @@
 import React from 'react'
-import { useAllCards } from './AllCardsContext'
+import { useAlertCard } from '../hooks/useAlertCard'
+import { useAllCards } from '../hooks/useAllCards'
 
 export const Card = ({ name, rarity, type, style, muted, ...props }) => {
   const cards = useAllCards()
+  const alertCard = useAlertCard()
   if(rarity === undefined) {
     rarity = cards[type][name].rarity
   }
@@ -10,6 +12,10 @@ export const Card = ({ name, rarity, type, style, muted, ...props }) => {
     <div
       {...props}
       title={name}
+      onContextMenu={e => {
+        e.preventDefault()
+        alertCard(type, name)
+      }}
       style={{
         position: 'relative',
         backgroundImage: `url(./images/rarities/${rarity}.png)`,

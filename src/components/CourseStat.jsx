@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
-import { useMyFavoredCourses } from './useMyFavoredCourses'
-import { useMyUniqueCards } from './useMyUniqueCards'
-import { useCourseAlert } from './useCourseAlert'
+import { useMyFavoredCourses } from '../hooks/useMyFavoredCourses'
+import { useAlertCourse } from '../hooks/useAlertCourse'
 
 
 export const CourseStat = () => {
   const favoredCourses = useMyFavoredCourses()
   const [expands, setExpands] = useState({})
-  const alertCourse = useCourseAlert()
-  // console.log(useMyUniqueCards())
+  const alertCourse = useAlertCourse()
   return <div style={{ display: 'flex' }}>
     {Object.entries(favoredCourses).map(([key, courses]) => (<div key={key}>
       <div>{Object.keys(courses).length} {key} <button onClick={() => setExpands({...expands, [key]:!expands[key]})}>{expands[key] ? '-' : '+'}</button></div>

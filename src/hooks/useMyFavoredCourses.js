@@ -1,7 +1,7 @@
-import { useAllCourses } from './AllCoursesContext'
-import { useMyCards } from './MyCardsContext'
+import { useMyCards } from '../components/MyCardsContext'
 import { useMemo } from 'react'
 import set from 'set-value'
+import { useAllCourses } from './useAllCourses'
 
 export const useMyFavoredCourses= () => {
   const courses = useAllCourses()

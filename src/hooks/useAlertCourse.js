@@ -1,9 +1,9 @@
-import { useAllCourses } from './AllCoursesContext'
-import { useAlert } from './common/AlertContext'
 import { Box } from '@theme-ui/components'
 import React from 'react'
+import { useAllCourses } from './useAllCourses'
+import { useAlert } from './useAlert'
 
-export const useCourseAlert = () => {
+export const useAlertCourse = () => {
   const courses = useAllCourses()
   const alert = useAlert()
   return (name) => {
