@@ -2,6 +2,7 @@
   "name": "mario-kart-tour-advisor",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dipsywong98.github.io/Mario-Kart-Tour-Advisor",
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@mdi/js": "^5.6.55",

@@ -2,6 +2,8 @@
 
 Little helper to advise you invest more on which card
 
+Live: https://dipsywong98.github.io/Mario-Kart-Tour-Advisor
+
 ## Features
 
 - [x] download all data
