@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Mario-Kart-Tour-Advisor/precache-manifest.abfad56b4adde9d183db83d3d80a75db.js"
+  "/Mario-Kart-Tour-Advisor/precache-manifest.95a03ea7fcf3b51f95c5086167b9954d.js"
 );
 
 self.addEventListener('message', (event) => {

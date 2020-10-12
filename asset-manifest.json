@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Mario-Kart-Tour-Advisor/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/Mario-Kart-Tour-Advisor/static/js/main.c9310bef.chunk.js",
-    "main.js.map": "/Mario-Kart-Tour-Advisor/static/js/main.c9310bef.chunk.js.map",
+    "main.js": "/Mario-Kart-Tour-Advisor/static/js/main.fb704bf0.chunk.js",
+    "main.js.map": "/Mario-Kart-Tour-Advisor/static/js/main.fb704bf0.chunk.js.map",
     "runtime-main.js": "/Mario-Kart-Tour-Advisor/static/js/runtime-main.10dc452d.js",
     "runtime-main.js.map": "/Mario-Kart-Tour-Advisor/static/js/runtime-main.10dc452d.js.map",
     "static/js/2.270890e5.chunk.js": "/Mario-Kart-Tour-Advisor/static/js/2.270890e5.chunk.js",
     "static/js/2.270890e5.chunk.js.map": "/Mario-Kart-Tour-Advisor/static/js/2.270890e5.chunk.js.map",
     "index.html": "/Mario-Kart-Tour-Advisor/index.html",
-    "precache-manifest.abfad56b4adde9d183db83d3d80a75db.js": "/Mario-Kart-Tour-Advisor/precache-manifest.abfad56b4adde9d183db83d3d80a75db.js",
+    "precache-manifest.95a03ea7fcf3b51f95c5086167b9954d.js": "/Mario-Kart-Tour-Advisor/precache-manifest.95a03ea7fcf3b51f95c5086167b9954d.js",
     "service-worker.js": "/Mario-Kart-Tour-Advisor/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/Mario-Kart-Tour-Advisor/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.270890e5.chunk.js.LICENSE.txt": "/Mario-Kart-Tour-Advisor/static/js/2.270890e5.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.10dc452d.js",
     "static/js/2.270890e5.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.c9310bef.chunk.js"
+    "static/js/main.fb704bf0.chunk.js"
   ]
 }
