@@ -5,7 +5,7 @@ import { MyCardContextProvider } from './MyCardsContext'
 import { AllCoursesContext } from './AllCoursesContext'
 import { CoursePerformance } from './CoursePerformance'
 import { UniqueCards } from './UniqueCards'
-import { Box, Container } from '@theme-ui/components'
+import { Box, Container, Heading } from '@theme-ui/components'
 import { NavBar } from './NavBar'
 import { AlertContextProvider } from './common/AlertContext'
 import { fullUrl } from '../utils/componentHelpers'
@@ -53,6 +53,7 @@ function App() {
                 }}>
                 <NavBar/>
                 <Container sx={{ gridArea: 'content', overflow: 'auto' }}>
+                  <Heading variant='pageHeading'>Mario Kart Tour Advisor</Heading>
                   <MyCards/>
                   <CoursePerformance/>
                   <UniqueCards/>

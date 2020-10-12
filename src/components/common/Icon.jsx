@@ -28,7 +28,8 @@ const Icon = ({ path, ...props }) => {
         backgroundImage: `url(${path})`,
         backgroundSize: '100% auto',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center'
+        backgroundPosition: 'center center',
+        ...props?.sx
       }}/>
       : <MdiIcon
         {...{ ...props, color: null, size: null }}

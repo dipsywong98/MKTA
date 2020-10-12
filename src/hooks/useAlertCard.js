@@ -17,7 +17,7 @@ export const useAlertCard = () => {
   const { myCourses } = useMyFavoredCourses()
   const uniqueCards = useMyUniqueCards()
   return useCallback((type, name) => {
-    let iHaveIt = !iHave(type, name)
+    let iHaveIt = iHave(type, name)
     const typeIndex = ['drivers', 'karts', 'gliders'].indexOf(type)
     const topUniqueCourses = iHaveIt ? uniqueCards[type][name].top.length : cards[type][name].top.filter(courseName => !myCourses[courseName].allTopFlags[typeIndex])
     const middleUniqueCourses = iHaveIt ? uniqueCards[type][name].middle.length : cards[type][name].middle.filter(courseName => !myCourses[courseName].allMiddleFlags[typeIndex])
@@ -33,7 +33,7 @@ export const useAlertCard = () => {
       message: (
         <Box>
           <Grid columns={2}>
-            <Card type={type} name={name} muted={iHaveIt}/>
+            <Card type={type} name={name} muted={!iHaveIt}/>
             <Box>
               <Box>
                 Unlock {topUniqueCourses.length} courses
