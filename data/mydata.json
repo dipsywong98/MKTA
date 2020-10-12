@@ -1,0 +1,377 @@
+{
+  "drivers": {
+    "Wendy": {
+      "level": 1
+    },
+    "Dry Bones": {
+      "level": 1
+    },
+    "Iggy": {
+      "level": 1
+    },
+    "Larry": {
+      "level": 1
+    },
+    "Lemmy": {
+      "level": 1
+    },
+    "Ludwig": {
+      "level": 1
+    },
+    "Morton": {
+      "level": 1
+    },
+    "Roy": {
+      "level": 1
+    },
+    "Shy Guy": {
+      "level": 1
+    },
+    "Koopa Troopa": {
+      "level": 1
+    },
+    "Baby Luigi": {
+      "level": 1
+    },
+    "Baby Rosalina": {
+      "level": 1
+    },
+    "Baby Daisy": {
+      "level": 1
+    },
+    "Baby Peach": {
+      "level": 1
+    },
+    "Baby Mario": {
+      "level": 1
+    },
+    "Mario": {
+      "level": 1
+    },
+    "Peach": {
+      "level": 1
+    },
+    "Yoshi": {
+      "level": 1
+    },
+    "Daisy": {
+      "level": 1
+    },
+    "Toad": {
+      "level": 1
+    },
+    "Toadette": {
+      "level": 1
+    },
+    "Rosalina": {
+      "level": 1
+    },
+    "Luigi": {
+      "level": 1
+    },
+    "Toad (Pit Crew)": {
+      "level": 1
+    },
+    "Red Yoshi": {
+      "level": 1
+    },
+    "Bowser": {
+      "level": 1
+    },
+    "Donkey Kong": {
+      "level": 1
+    },
+    "Diddy Kong": {
+      "level": 1
+    },
+    "Lakitu": {
+      "level": 1
+    },
+    "Bowser Jr.": {
+      "level": 1
+    },
+    "Wario": {
+      "level": 1
+    },
+    "Waluigi": {
+      "level": 1
+    },
+    "King Boo": {
+      "level": 1
+    },
+    "Black Shy Guy": {
+      "level": 1
+    },
+    "Hammer Bro": {
+      "level": 1
+    },
+    "Boomerang Bro": {
+      "level": 1
+    },
+    "Ice Bro": {
+      "level": 1
+    },
+    "Fire Bro": {
+      "level": 1
+    },
+    "Birdo (Yellow)": {
+      "level": 1
+    },
+    "Monty Mole": {
+      "level": 1
+    },
+    "Metal Mario": {
+      "level": 1
+    },
+    "Rosalina (Halloween)": {
+      "level": 1
+    },
+    "Mario (Hakama)": {
+      "level": 1
+    },
+    "Mario (Santa)": {
+      "level": 1
+    },
+    "Pink Gold Peach": {
+      "level": 1
+    },
+    "Daisy (Yukata)": {
+      "level": 1
+    },
+    "Dry Bowser": {
+      "level": 1
+    },
+    "Waluigi (Bus Driver)": {
+      "level": 1
+    },
+    "Wario (Hiker)": {
+      "level": 1
+    }
+  },
+  "karts": {
+    "Poltergust 4000": {
+      "level": 0
+    },
+    "Streamliner": {
+      "level": 1
+    },
+    "Daytripper": {
+      "level": 1
+    },
+    "Cheep Charger": {
+      "level": 1
+    },
+    "Koopa Dasher": {
+      "level": 1
+    },
+    "Warship": {
+      "level": 0
+    },
+    "Pipe Frame": {
+      "level": 1
+    },
+    "Birthday Girl": {
+      "level": 1
+    },
+    "Mushmellow": {
+      "level": 1
+    },
+    "Biddybuggy": {
+      "level": 1
+    },
+    "Blue Biddybuggy": {
+      "level": 0
+    },
+    "Pink Mushmellow": {
+      "level": 0
+    },
+    "Birthday Girl Rosalina": {
+      "level": 1
+    },
+    "Green Kiddie Kart": {
+      "level": 1
+    },
+    "Red Kiddie Kart": {
+      "level": 1
+    },
+    "Bullet Blaster": {
+      "level": 1
+    },
+    "Landship": {
+      "level": 1
+    },
+    "Pipe Buggy": {
+      "level": 1
+    },
+    "Mach 8": {
+      "level": 1
+    },
+    "Turbo Yoshi": {
+      "level": 1
+    },
+    "Soda Jet": {
+      "level": 1
+    },
+    "Super Blooper": {
+      "level": 1
+    },
+    "Gold Blooper": {
+      "level": 0
+    },
+    "Royale": {
+      "level": 1
+    },
+    "Cloud 9": {
+      "level": 1
+    },
+    "Zucchini": {
+      "level": 1
+    },
+    "White Royale": {
+      "level": 0
+    },
+    "Red Streamliner": {
+      "level": 1
+    },
+    "Red Turbo Yoshi": {
+      "level": 1
+    },
+    "Blue Seven": {
+      "level": 1
+    },
+    "Super 1": {
+      "level": 0
+    },
+    "Flame Flyer": {
+      "level": 1
+    },
+    "Barrel Train": {
+      "level": 1
+    },
+    "DK Jumbo": {
+      "level": 1
+    },
+    "Koopa Clown": {
+      "level": 1
+    },
+    "Para-Wing": {
+      "level": 1
+    },
+    "Turbo Birdo": {
+      "level": 1
+    },
+    "Light-blue Turbo Birdo": {
+      "level": 1
+    },
+    "B Dasher": {
+      "level": 1
+    },
+    "Circuit Special": {
+      "level": 1
+    },
+    "Kabuki Dasher": {
+      "level": 1
+    },
+    "Wildfire Flyer": {
+      "level": 1
+    },
+    "Dozer Dasher": {
+      "level": 1
+    },
+    "Festival Girl": {
+      "level": 1
+    },
+    "Banana Master": {
+      "level": 1
+    }
+  },
+  "gliders": {
+    "Soaring Jack": {
+      "level": 0
+    },
+    "Sweetheart Glider": {
+      "level": 0
+    },
+    "Parachute": {
+      "level": 1
+    },
+    "Parafoil": {
+      "level": 1
+    },
+    "Full Flight": {
+      "level": 0
+    },
+    "Gold Glider": {
+      "level": 0
+    },
+    "Super Glider": {
+      "level": 1
+    },
+    "Paper Glider": {
+      "level": 1
+    },
+    "Droplet Glider": {
+      "level": 1
+    },
+    "BBIA Parafoil": {
+      "level": 1
+    },
+    "Minion Paper Glider": {
+      "level": 1
+    },
+    "Piston Glider": {
+      "level": 1
+    },
+    "Piranha Plant Parafoil": {
+      "level": 1
+    },
+    "Peach Parasol": {
+      "level": 1
+    },
+    "Flower Glider": {
+      "level": 1
+    },
+    "Pink Flower Glider": {
+      "level": 1
+    },
+    "❓ Block": {
+      "level": 1
+    },
+    "Bob-omb Parafoil": {
+      "level": 1
+    },
+    "Shell Parachute": {
+      "level": 1
+    },
+    "Wario Wing": {
+      "level": 1
+    },
+    "Waluigi Wing": {
+      "level": 0
+    },
+    "BaNaNa Parafoil": {
+      "level": 1
+    },
+    "Purple Oilpaper Umbrella": {
+      "level": 1
+    },
+    "Starchute": {
+      "level": 1
+    },
+    "Heart Balloons": {
+      "level": 1
+    },
+    "Safety Glider": {
+      "level": 1
+    },
+    "Swooper": {
+      "level": 1
+    },
+    "Cloud Glider": {
+      "level": 1
+    },
+    "Tropical Glider": {
+      "level": 1
+    }
+  }
+}
