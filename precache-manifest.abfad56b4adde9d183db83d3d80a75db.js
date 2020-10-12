@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2b236739c1ce256080b2ca0c0e575076",
+    "revision": "03f261546b0302191d7fdcb28e9d4a4f",
     "url": "/Mario-Kart-Tour-Advisor/index.html"
   },
   {
-    "revision": "19c09bb9c4c7abaa4094",
+    "revision": "233b122af8b60eb77552",
     "url": "/Mario-Kart-Tour-Advisor/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "b07d4c80c23f9c29dceb",
-    "url": "/Mario-Kart-Tour-Advisor/static/js/2.29729d66.chunk.js"
+    "revision": "fe16997f122cb107bfa5",
+    "url": "/Mario-Kart-Tour-Advisor/static/js/2.270890e5.chunk.js"
   },
   {
     "revision": "4a0a7b5d286e7649b2759b31776d7388",
-    "url": "/Mario-Kart-Tour-Advisor/static/js/2.29729d66.chunk.js.LICENSE.txt"
+    "url": "/Mario-Kart-Tour-Advisor/static/js/2.270890e5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "19c09bb9c4c7abaa4094",
-    "url": "/Mario-Kart-Tour-Advisor/static/js/main.6f3cf5e0.chunk.js"
+    "revision": "233b122af8b60eb77552",
+    "url": "/Mario-Kart-Tour-Advisor/static/js/main.c9310bef.chunk.js"
   },
   {
     "revision": "46f874f25ffe05763d72",
