@@ -5,7 +5,8 @@ export const MyCardsContext = createContext({
   myCards: { drivers: {}, karts: {}, gliders: {} },
   levelUp: () => console.error('levelUp not implemented'),
   levelDown: () => console.error('levelDown not implemented'),
-  levelToggle: () => console.error('levelToggle not implemented')
+  levelToggle: () => console.error('levelToggle not implemented'),
+  iHave: () => true
 })
 
 export const useMyCards = () => useContext(MyCardsContext).myCards
@@ -69,7 +70,10 @@ export const MyCardContextProvider = (props) => {
   useEffect(() => {
     localStorage.setItem('myCards', JSON.stringify(myCards))
   }, [myCards])
+  const iHave = useCallback((type, cardName) => {
+    return !!myCards[type][cardName]?.level
+  }, [myCards])
   return (
-    <MyCardsContext.Provider value={{ myCards, levelUp, levelDown, levelToggle }} {...props}/>
+    <MyCardsContext.Provider value={{ myCards, levelUp, levelDown, levelToggle, iHave }} {...props}/>
   )
 }

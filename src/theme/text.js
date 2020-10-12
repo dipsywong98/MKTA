@@ -48,5 +48,9 @@ export default {
   helperText: {
     fontSize: 0,
     color: 'muted'
+  },
+  caption: {
+    fontSize: 0,
+    color: 'fgs.1'
   }
 }

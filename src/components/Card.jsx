@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAlertCard } from '../hooks/useAlertCard'
 import { useAllCards } from '../hooks/useAllCards'
+import { fullUrl } from '../utils/componentHelpers'
 
 export const Card = ({ name, rarity, type, style, muted, ...props }) => {
   const cards = useAllCards()
@@ -20,11 +21,11 @@ export const Card = ({ name, rarity, type, style, muted, ...props }) => {
       }}
       style={{
         position: 'relative',
-        backgroundImage: `url(./images/rarities/${rarity}.png)`,
+        backgroundImage: `url(${fullUrl(`/images/rarities/${rarity}.png`)})`,
         backgroundSize: 'auto 100%',
-        width: '54px',
+        minWidth: '54px',
         maxWidth: '54px',
-        height: '69px',
+        minHeight: '69px',
         maxHeight: '69px',
         ...style
       }}>
@@ -40,7 +41,7 @@ export const Card = ({ name, rarity, type, style, muted, ...props }) => {
         }}>
         <img
           alt={`${type}/${name}`}
-          src={`./images/${type}/${name}.png`}
+          src={fullUrl(`/images/${type}/${name}.png`)}
           style={{
             position: 'absolute',
             left: '50%',

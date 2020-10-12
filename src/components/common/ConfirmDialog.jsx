@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import Dialog from './Dialog'
-import { Box, Flex, Heading, Text, Button } from '@theme-ui/components'
+import { Box, Button, Flex, Heading, Text } from '@theme-ui/components'
 import PropTypes from 'prop-types'
 
 const ConfirmDialog = props => {
@@ -23,7 +23,7 @@ const ConfirmDialog = props => {
         setIsOpen: props.setIsOpen,
         size: props.size
       }}>
-      <Box p={[4, 3]} pb={2}>
+      <Box p={3} pb={2}>
         <Heading variant='subheading'>{props.title}</Heading>
         <Text>{props.children}</Text>
       </Box>

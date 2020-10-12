@@ -1,10 +1,11 @@
-import { useMemo } from 'react'
+import { useContext, useMemo } from 'react'
 import set from 'set-value'
 import { useAllCourses } from './useAllCourses'
 import { useDoIHave } from './useDoIHave'
 import { fromPairs, groupBy } from 'ramda'
+import { CalculationContext } from '../components/CalculationContext'
 
-export const useMyFavoredCourses= () => {
+export const useCalMyFavoredCourses = () => {
   const courses = useAllCourses()
   const iHave = useDoIHave()
 
@@ -49,4 +50,8 @@ export const useMyFavoredCourses= () => {
 
     return { myTopCourses: fromPairs(myTopCourses), myMiddleCourses: fromPairs(myMiddleCourses), myWorstCourses: fromPairs(myWorstCourses), myCourses: fromPairs(myCourses) }
   }, [courses, iHave])
+}
+
+export const useMyFavoredCourses = () => {
+  return useContext(CalculationContext).myFavoredCourses
 }
