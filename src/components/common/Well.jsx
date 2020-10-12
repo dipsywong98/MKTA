@@ -1,5 +1,5 @@
-import React, { forwardRef, FunctionComponent } from 'react'
-import { Box, BoxOwnProps } from '@theme-ui/components'
+import React, { forwardRef } from 'react'
+import { Box } from '@theme-ui/components'
 
 const Well = forwardRef((props, ref) => (
   <Box
