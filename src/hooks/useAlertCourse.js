@@ -39,5 +39,5 @@ export const useAlertCourse = () => {
         </Box>
       })
     }
-  }, [courses, alert])
+  }, [courses, alert, iHave])
 }
