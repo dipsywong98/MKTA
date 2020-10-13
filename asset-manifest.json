@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/Mario-Kart-Tour-Advisor/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/Mario-Kart-Tour-Advisor/static/js/main.fb704bf0.chunk.js",
-    "main.js.map": "/Mario-Kart-Tour-Advisor/static/js/main.fb704bf0.chunk.js.map",
-    "runtime-main.js": "/Mario-Kart-Tour-Advisor/static/js/runtime-main.10dc452d.js",
-    "runtime-main.js.map": "/Mario-Kart-Tour-Advisor/static/js/runtime-main.10dc452d.js.map",
-    "static/js/2.270890e5.chunk.js": "/Mario-Kart-Tour-Advisor/static/js/2.270890e5.chunk.js",
-    "static/js/2.270890e5.chunk.js.map": "/Mario-Kart-Tour-Advisor/static/js/2.270890e5.chunk.js.map",
-    "index.html": "/Mario-Kart-Tour-Advisor/index.html",
-    "precache-manifest.95a03ea7fcf3b51f95c5086167b9954d.js": "/Mario-Kart-Tour-Advisor/precache-manifest.95a03ea7fcf3b51f95c5086167b9954d.js",
-    "service-worker.js": "/Mario-Kart-Tour-Advisor/service-worker.js",
-    "static/css/main.5ecd60fb.chunk.css.map": "/Mario-Kart-Tour-Advisor/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.270890e5.chunk.js.LICENSE.txt": "/Mario-Kart-Tour-Advisor/static/js/2.270890e5.chunk.js.LICENSE.txt",
-    "static/media/greenShell.png": "/Mario-Kart-Tour-Advisor/static/media/greenShell.e06573ef.png",
-    "static/media/star.png": "/Mario-Kart-Tour-Advisor/static/media/star.55b594fe.png"
+    "main.css": "/MKTA/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/MKTA/static/js/main.f45435cc.chunk.js",
+    "main.js.map": "/MKTA/static/js/main.f45435cc.chunk.js.map",
+    "runtime-main.js": "/MKTA/static/js/runtime-main.8cecad2c.js",
+    "runtime-main.js.map": "/MKTA/static/js/runtime-main.8cecad2c.js.map",
+    "static/js/2.270890e5.chunk.js": "/MKTA/static/js/2.270890e5.chunk.js",
+    "static/js/2.270890e5.chunk.js.map": "/MKTA/static/js/2.270890e5.chunk.js.map",
+    "index.html": "/MKTA/index.html",
+    "precache-manifest.005e42d84a3403cc4e3c7d371bb6d5d8.js": "/MKTA/precache-manifest.005e42d84a3403cc4e3c7d371bb6d5d8.js",
+    "service-worker.js": "/MKTA/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/MKTA/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.270890e5.chunk.js.LICENSE.txt": "/MKTA/static/js/2.270890e5.chunk.js.LICENSE.txt",
+    "static/media/greenShell.png": "/MKTA/static/media/greenShell.e06573ef.png",
+    "static/media/star.png": "/MKTA/static/media/star.55b594fe.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.10dc452d.js",
+    "static/js/runtime-main.8cecad2c.js",
     "static/js/2.270890e5.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.fb704bf0.chunk.js"
+    "static/js/main.f45435cc.chunk.js"
   ]
 }
