@@ -10,6 +10,7 @@ import { NavBar } from './NavBar'
 import { AlertContextProvider } from './common/AlertContext'
 import { fullUrl } from '../utils/componentHelpers'
 import { CalculationContextProvider } from './CalculationContext'
+import { WishList } from './WishList'
 
 function App() {
   const [drivers, setDrivers] = useState({})
@@ -52,11 +53,12 @@ function App() {
                   `,
                 }}>
                 <NavBar/>
-                <Container sx={{ gridArea: 'content', overflow: 'auto' }}>
+                <Container sx={{ gridArea: 'content', overflow: 'auto', scrollBehavior: 'smooth' }}>
                   <Heading variant='pageHeading'>Mario Kart Tour Advisor</Heading>
                   <MyCards/>
                   <CoursePerformance/>
                   <UniqueCards/>
+                  <WishList/>
                 </Container>
               </Box>
             </AlertContextProvider>

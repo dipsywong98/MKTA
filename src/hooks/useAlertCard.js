@@ -19,8 +19,8 @@ export const useAlertCard = () => {
   return useCallback((type, name) => {
     let iHaveIt = iHave(type, name)
     const typeIndex = ['drivers', 'karts', 'gliders'].indexOf(type)
-    const topUniqueCourses = iHaveIt ? uniqueCards[type][name].top.length : cards[type][name].top.filter(courseName => !myCourses[courseName].allTopFlags[typeIndex])
-    const middleUniqueCourses = iHaveIt ? uniqueCards[type][name].middle.length : cards[type][name].middle.filter(courseName => !myCourses[courseName].allMiddleFlags[typeIndex])
+    const topUniqueCourses = iHaveIt ? uniqueCards[type][name].top : cards[type][name]?.top.filter(courseName => !myCourses[courseName].allTopFlags[typeIndex])
+    const middleUniqueCourses = iHaveIt ? uniqueCards[type][name].middle : cards[type][name]?.middle.filter(courseName => !myCourses[courseName].allMiddleFlags[typeIndex])
 
     const renderCourses = (courseNames) => courseNames.map(name => (
       <Box key={name} onClick={() => alertCourse(name)}>

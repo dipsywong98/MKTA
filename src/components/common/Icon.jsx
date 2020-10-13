@@ -7,13 +7,15 @@ import gliders from '../../assets/images/icons/gliders.png'
 import karts from '../../assets/images/icons/karts.png'
 import star from '../../assets/images/icons/star.png'
 import greenShell from '../../assets/images/icons/greenShell.png'
+import gift from '../../assets/images/icons/gift.png'
 
 export const ICONS = {
   drivers,
   gliders,
   karts,
   star,
-  greenShell
+  greenShell,
+  gift
 }
 
 const Icon = ({ path, ...props }) => {

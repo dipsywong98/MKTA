@@ -1,6 +1,5 @@
 import { useContext, useMemo } from 'react'
-import set from 'set-value'
-import { mergeAll } from 'ramda'
+import { assocPath, mergeAll } from 'ramda'
 import { useAllCards } from './useAllCards'
 import { CalculationContext } from '../components/CalculationContext'
 
@@ -14,16 +13,16 @@ export const useCalMyUniqueCards = (myFavoredCourses) => {
         gliders: {}
       }
     }
-    const myCards = {}
+    let myCards = {}
     Object.entries(mergeAll(Object.values(myFavoredCourses))).forEach(([courseName, myCourse]) => {
       Object.entries(myCourse).forEach(([typeName, { top, middle }]) => {
         const topCardNames = Object.keys(top || {})
         if (topCardNames.length === 1) {
-          set(myCards, `${typeName}.top.${topCardNames[0]}.${courseName}`, true)
+          myCards = assocPath([typeName, 'top', topCardNames[0], courseName], true, myCards)
         }
         const middleCardNames = Object.keys(middle || {})
         if (topCardNames.length === 0 && middleCardNames.length === 1) {
-          set(myCards, `${typeName}.middle.${middleCardNames[0]}.${courseName}`, true)
+          myCards = assocPath([typeName,'middle',middleCardNames[0], courseName], true, myCards)
         }
       })
     })
@@ -43,7 +42,7 @@ export const useCalMyUniqueCards = (myFavoredCourses) => {
         try {
           card[2] += ['Normal', 'Super', 'High-End'].indexOf(cards[type][card[0]].rarity)
         } catch (e) {
-          console.error(cards, cards[type], card[0])
+          console.error(cards, cards[type], card[0], joinedList)
         }
       })
       return {
