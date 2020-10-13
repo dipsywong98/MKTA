@@ -11,6 +11,7 @@ import { AlertContextProvider } from './common/AlertContext'
 import { fullUrl } from '../utils/componentHelpers'
 import { CalculationContextProvider } from './CalculationContext'
 import { WishList } from './WishList'
+import { DropZoneProvider } from './DropZoneProvider'
 
 function App() {
   const [drivers, setDrivers] = useState({})
@@ -48,18 +49,20 @@ function App() {
                   gridTemplateColumns: '1fr',
                   gridTemplateRows: '0fr 1fr',
                   gridTemplateAreas: `
-                  "navbar"
-                  "content"
-                  `,
+                    "navbar"
+                    "content"
+                    `
                 }}>
                 <NavBar/>
-                <Container sx={{ gridArea: 'content', overflow: 'auto', scrollBehavior: 'smooth' }}>
-                  <Heading variant='pageHeading'>Mario Kart Tour Advisor</Heading>
-                  <MyCards/>
-                  <CoursePerformance/>
-                  <UniqueCards/>
-                  <WishList/>
-                </Container>
+                <DropZoneProvider sx={{ gridArea: 'content', overflow: 'auto', scrollBehavior: 'smooth' }}>
+                  <Container>
+                    <Heading variant='pageHeading'>Mario Kart Tour Advisor</Heading>
+                    <MyCards/>
+                    <CoursePerformance/>
+                    <UniqueCards/>
+                    <WishList/>
+                  </Container>
+                </DropZoneProvider>
               </Box>
             </AlertContextProvider>
           </CalculationContextProvider>

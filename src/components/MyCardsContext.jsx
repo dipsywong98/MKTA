@@ -6,6 +6,7 @@ export const MyCardsContext = createContext({
   levelUp: () => console.error('levelUp not implemented'),
   levelDown: () => console.error('levelDown not implemented'),
   levelToggle: () => console.error('levelToggle not implemented'),
+  overwrite: () => console.error('overwrite not implemented'),
   iHave: () => true
 })
 
@@ -15,6 +16,7 @@ export const useMyCardsReducers = () => useContext(MyCardsContext)
 export const LEVEL_UP = 'level_up'
 export const LEVEL_DOWN = 'level_down'
 export const LEVEL_TOGGLE = 'level_toggle'
+export const OVERWRITE = 'overwrite'
 
 const makeMyNewCard = () => clone({
   level: 0
@@ -47,6 +49,8 @@ export const MyCardContextProvider = (props) => {
         prevState[type][name].level = prevState[type][name].level === 0 ? 1 : 0
         return { ...prevState }
       }
+      case OVERWRITE:
+        return payload
       default:
         return prevState
     }
@@ -67,6 +71,9 @@ export const MyCardContextProvider = (props) => {
   const levelToggle = (type, name) => {
     myCardsReducer({ action: LEVEL_TOGGLE, payload: { type, name } })
   }
+  const overwrite = payload => {
+    myCardsReducer({ action: OVERWRITE, payload })
+  }
   useEffect(() => {
     localStorage.setItem('myCards', JSON.stringify(myCards))
   }, [myCards])
@@ -74,6 +81,6 @@ export const MyCardContextProvider = (props) => {
     return !!myCards[type][cardName]?.level
   }, [myCards])
   return (
-    <MyCardsContext.Provider value={{ myCards, levelUp, levelDown, levelToggle, iHave }} {...props}/>
+    <MyCardsContext.Provider value={{ myCards, levelUp, levelDown, levelToggle, overwrite, iHave }} {...props}/>
   )
 }

@@ -10,6 +10,7 @@ import text from './text'
 import wells from './wells'
 import messages from './messages'
 import badges from './badges'
+import React from 'react'
 
 const theme = {
   useColorSchemeMediaQuery: true,
@@ -69,7 +70,8 @@ const theme = {
   shadows: [
     'none',
     '0 2px 4px rgba(0, 0, 0, 0.2)',
-    '0 4px 8px rgba(0, 0, 0, 0.3)'
+    '0 4px 8px rgba(0, 0, 0, 0.3)',
+    `inset 0 0 20px 10px ${colors.yellow}`
   ],
   layout: {
     container: {
