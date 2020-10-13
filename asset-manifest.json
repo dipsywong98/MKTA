@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/MKTA/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/MKTA/static/js/main.f45435cc.chunk.js",
-    "main.js.map": "/MKTA/static/js/main.f45435cc.chunk.js.map",
+    "main.js": "/MKTA/static/js/main.0dbed6b6.chunk.js",
+    "main.js.map": "/MKTA/static/js/main.0dbed6b6.chunk.js.map",
     "runtime-main.js": "/MKTA/static/js/runtime-main.8cecad2c.js",
     "runtime-main.js.map": "/MKTA/static/js/runtime-main.8cecad2c.js.map",
     "static/js/2.270890e5.chunk.js": "/MKTA/static/js/2.270890e5.chunk.js",
     "static/js/2.270890e5.chunk.js.map": "/MKTA/static/js/2.270890e5.chunk.js.map",
     "index.html": "/MKTA/index.html",
-    "precache-manifest.005e42d84a3403cc4e3c7d371bb6d5d8.js": "/MKTA/precache-manifest.005e42d84a3403cc4e3c7d371bb6d5d8.js",
+    "precache-manifest.8ea782ff83f4b10c74d01150b6adbf4b.js": "/MKTA/precache-manifest.8ea782ff83f4b10c74d01150b6adbf4b.js",
     "service-worker.js": "/MKTA/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/MKTA/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.270890e5.chunk.js.LICENSE.txt": "/MKTA/static/js/2.270890e5.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.8cecad2c.js",
     "static/js/2.270890e5.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.f45435cc.chunk.js"
+    "static/js/main.0dbed6b6.chunk.js"
   ]
 }
