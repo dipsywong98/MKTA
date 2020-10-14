@@ -37,6 +37,7 @@ export const useCalMyFavoredCourses = () => {
       myCourse.score = calScore({ allTopFlags, allMiddleFlags })
       myCourses.push([courseName, myCourse])
     })
+    const sortedCourses = myCourses.sort((a, b) => b[1].score - a[1].score)
     const { myTopCourses = [], myMiddleCourses = [], myWorstCourses = [] } = groupBy(([_, { allTopFlags, allMiddleFlags }]) => {
       if (allTopFlags[0] && allTopFlags[1] && allTopFlags[2]) {
         return 'myTopCourses'
@@ -45,13 +46,13 @@ export const useCalMyFavoredCourses = () => {
       } else {
         return 'myWorstCourses'
       }
-    })(myCourses.sort((a, b) => b[1].score - a[1].score))
+    })(sortedCourses)
 
     return {
       myTopCourses: fromPairs(myTopCourses),
       myMiddleCourses: fromPairs(myMiddleCourses),
       myWorstCourses: fromPairs(myWorstCourses),
-      myCourses: fromPairs(myCourses)
+      myCourses: fromPairs(sortedCourses)
     }
   }, [courses, iHave])
 }

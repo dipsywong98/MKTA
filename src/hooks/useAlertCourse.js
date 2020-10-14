@@ -34,14 +34,16 @@ export const useAlertCourse = () => {
                 <IconText
                   path={ICONS[type]}
                   size={3}
-                                        sx={{ textTransform: 'capitalize' }}>
+                  sx={{ textTransform: 'capitalize' }}>
                   {type}
                 </IconText>
               </Heading>
-              <Text><Flex><Icon path={ICONS.greenShell}/><Text ml={2}>Top ({courses[name][type].top.filter(name => iHave(type, name)).length} / {courses[name][type].top.length})</Text></Flex></Text>
+              <Text><Flex><Icon path={ICONS.star}/><Text ml={2}>Top
+                ({courses[name][type].top.filter(name => iHave(type, name)).length} / {courses[name][type].top.length})</Text></Flex></Text>
               {cardList(type, courses[name][type].top)}
               <Box m={1}/>
-              <Text><Flex><IconWithPartialHide hideProportion={0.5} path={ICONS.greenShell}/><Text ml={2}>Middle ({courses[name][type].middle.filter(name => iHave(type, name)).length} / {courses[name][type].middle.length})</Text></Flex></Text>
+              <Text><Flex><IconWithPartialHide hideProportion={0.5} path={ICONS.star}/><Text ml={2}>Middle
+                ({courses[name][type].middle.filter(name => iHave(type, name)).length} / {courses[name][type].middle.length})</Text></Flex></Text>
               {cardList(type, courses[name][type].middle)}
             </Box>
           ))}

@@ -30,7 +30,7 @@ export const DropZoneProvider = ({ children, sx }) => {
   }, [])
   const { getRootProps, getInputProps, open, isDragActive } = useDropzone({ onDrop, noClick: true, multiple: false })
   return (
-    <Box {...getRootProps()} sx={sx}>
+    <Box {...getRootProps()} sx={{ ...sx, outline: 'none' }}>
       <input {...getInputProps()} />
       <DropZoneContext.Provider value={{ openFileDialog: open, subscribeDrop, unSubscribeDrop }}>
         <Box sx={{ boxShadow: isDragActive ? 3 : 0, ...transition(SLOW, ['box-shadow']) }}>

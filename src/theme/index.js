@@ -10,7 +10,6 @@ import text from './text'
 import wells from './wells'
 import messages from './messages'
 import badges from './badges'
-import React from 'react'
 
 const theme = {
   useColorSchemeMediaQuery: true,

@@ -24,15 +24,17 @@ const Icon = ({ path, ...props }) => {
 
   return (
     Object.values(ICONS).includes(path) ?
-      <Box sx={{
-        width: sizes,
-        height: sizes,
-        backgroundImage: `url(${path})`,
-        backgroundSize: '100% auto',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center',
-        ...props?.sx
-      }}/>
+      <Box
+        {...props}
+        sx={{
+          width: sizes,
+          height: sizes,
+          backgroundImage: `url(${path})`,
+          backgroundSize: '100% auto',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          ...props?.sx
+        }}/>
       : <MdiIcon
         {...{ ...props, color: null, size: null }}
         path={path}

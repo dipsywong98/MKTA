@@ -16,8 +16,11 @@ export const WishList = () => {
       <Text>Wish list contains the cards that you may want the most as it unlocks the most courses</Text>
       {
         Object.entries(wishList).map(([type, cardsToCourses]) => (<CollapsibleWell key={type} header={
-            <IconText path={ICONS[type]}
-                      sx={{ textTransform: 'capitalize' }}>unique {type} ({Object.entries(cardsToCourses).length})</IconText>
+            <IconText
+              path={ICONS[type]}
+              sx={{ textTransform: 'capitalize' }}>
+              wished {type} ({Object.entries(cardsToCourses).length})
+            </IconText>
           } noPad>
             <Table>
               <tbody>
