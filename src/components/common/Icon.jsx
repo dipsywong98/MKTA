@@ -8,6 +8,7 @@ import karts from '../../assets/images/icons/karts.png'
 import star from '../../assets/images/icons/star.png'
 import greenShell from '../../assets/images/icons/greenShell.png'
 import gift from '../../assets/images/icons/gift.png'
+import news from '../../assets/images/icons/news.png'
 
 export const ICONS = {
   drivers,
@@ -15,7 +16,8 @@ export const ICONS = {
   karts,
   star,
   greenShell,
-  gift
+  gift,
+  news
 }
 
 const Icon = ({ path, ...props }) => {

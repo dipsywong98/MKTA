@@ -2,27 +2,29 @@
 
 Little helper to advise you invest more on which card
 
-Live: https://dipsywong98.github.io/Mario-Kart-Tour-Advisor
+Live: https://dipsywong98.github.io/MKTA
 
 ## Features
 
 - [x] download all data
 
-- [ ] auto deploy pipeline
+- [x] auto deploy pipeline
 
-- [ ] statistic of each cards: which has the most top courses
+- [x] statistic of each cards: which has the most top courses
 
-- [ ] statistic of your cards:
+- [x] statistic of your cards:
     - [x] which of your card have the most unique top courses,\
 that you dont have other card top in this course
-    - [ ] unlock which card will unlock the most courses (wish list)
+    - [x] unlock which card will unlock the most courses (wish list)
     - [x] if unlock this card, you can unlock what courses
     - [x] store your cards in cookie
 
 - [ ] minmax covering of cards: invest on minimum number of cards to excel the maximum of courses 
-(seems this is just a maxflow problem on a bipartite graph)
+(seems this is just a maxflow problem on a bipartite graph(?))
 
-## Development
+## Development/Contribute
+
+1. submit an issue for discussion
 
 1. fork & clone
 

@@ -12,6 +12,7 @@ import { fullUrl } from '../utils/componentHelpers'
 import { CalculationContextProvider } from './CalculationContext'
 import { WishList } from './WishList'
 import { DropZoneProvider } from './DropZoneProvider'
+import { About } from './About'
 
 function App() {
   const [drivers, setDrivers] = useState({})
@@ -61,6 +62,7 @@ function App() {
                     <CoursePerformance/>
                     <UniqueCards/>
                     <WishList/>
+                    <About/>
                   </Container>
                 </DropZoneProvider>
               </Box>

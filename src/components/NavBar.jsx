@@ -36,7 +36,8 @@ export const NavBar = () => {
       <NavLink title='My Cards' href='#my_cards' path={ICONS.drivers} />
       <NavLink title='Course Performance' href='#courses' path={ICONS.star}/>
       <NavLink title='Unique Cards' href='#unique_cards' path={ICONS.greenShell}/>
-      <NavLink title='Wish List' href='#wish_list' path={ICONS.gift} />
+      <NavLink title='Wish List' href='#wish_list' path={ICONS.gift}/>
+      <NavLink title='About' href='#about' path={ICONS.news}/>
     </Flex>
   )
 }
