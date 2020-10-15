@@ -27,7 +27,7 @@ export const useCalMyUniqueCards = (myFavoredCourses) => {
       })
     })
     return mergeAll(['drivers', 'karts', 'gliders'].map((type) => {
-      const { top, middle } = myCards?.[type] || { top: {}, middle: {} }
+      const { top = {}, middle = {} } = myCards?.[type] ?? {}
       const joinedList = Object.entries(top).map(([name, courses]) => [name, { top: Object.keys(courses) }, Object.keys(courses).length * 10000])
       Object.entries(middle).forEach(([name, courses]) => {
         const find = joinedList.find(([_name]) => name === _name)
