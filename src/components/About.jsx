@@ -48,6 +48,7 @@ export const About = () => {
         Cookies are used for storing your drivers/karts/gliders, which is stored in your browsers locally.
         When you uses this website, you agreed the use of cookies.
         We wont ask for any username nor password, nor collecting any other data.
+        We used google analytics to collect anonymous site statistics
       </Text>
     </Box>
   )
